@@ -30,7 +30,7 @@ def send_mail():
     """
 
     try:
-        smtp_ssl_host, smtp_ssl_port, username, password, sender, targets = get_config('config.json')
+        smtp_ssl_host, smtp_ssl_port, username, password, sender, targets = get_config('../config.json')
 
         msg = MIMEText('Vite vite il y a une place de disponible pour le renouvellement :)')
         msg['Subject'] = 'Script PP'

@@ -6,14 +6,10 @@ def write_log(msg):
     :param msg: message to write
     :return:
     """
-    print("[{}] : {} \n".format(time.ctime(), msg))
-
-
-def bidon():
     try:
         path = "../logs/"
-        time_format = '%Y-%m-%d-%H:%M'
-        file_name = "{}-logs.csv".format(time.strftime(time_format))
+        current_time = time.strftime('%Y-%m-%d:%H')
+        file_name = "{}-logs.csv".format(current_time)
         # One file per day
         file = open(path + file_name, mode="a")
         # Write the msg into the file with timestamp
@@ -22,4 +18,4 @@ def bidon():
         file.close()
 
     except Exception as e:
-        print("ERROR : {}".format(e))
+        print("==> ERROR : {}".format(e))
