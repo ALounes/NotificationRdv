@@ -1,0 +1,9 @@
+config.json
+logs/*
+
+.idea/NotificationRdv.iml
+.idea/modules.xml
+.idea/workspace.xml
+.idea/vcs.xml
+*.xml
+.idea/vcs.xml
