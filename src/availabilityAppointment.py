@@ -1,6 +1,9 @@
 import http.client
-from notificationLogs import write_log
 import json
+from utils import set_logger
+
+
+LOG = set_logger(__name__)
 
 
 def get_url_config(file_name):
@@ -31,8 +34,10 @@ def dispo_rdv():
     conn.request("POST", path, payload, headers)
     res = conn.getresponse()
 
+    LOG.info("[HTTP status] : {}".format(res.status))
+
     if res.status > 400:
-        write_log("[HTTP status] : " + res.status)
+        LOG.info("[HTTP status] : {}".format(res.status))
         return False
 
     data = res.read().decode("utf-8")

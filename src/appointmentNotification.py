@@ -1,7 +1,10 @@
 import smtplib
 import json
 from email.mime.text import MIMEText
-from notificationLogs import write_log
+from utils import set_logger
+
+
+LOG = set_logger(__name__)
 
 
 def get_config(file_name):
@@ -41,8 +44,8 @@ def send_mail():
         server.login(username, password)
         server.sendmail(sender, targets, msg.as_string())
         server.quit()
-        write_log('Sending mail')
+
+        LOG.info('Sending mail')
 
     except Exception as e:
-        write_log('[ERROR] Sending mail Failed : {}'.format(e))
-
+        LOG.error('[ERROR] Sending mail Failed : {}'.format(e))

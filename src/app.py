@@ -1,7 +1,9 @@
 from availabilityAppointment import dispo_rdv
 from appointmentNotification import send_mail
-from notificationLogs import write_log
+from utils import set_logger
 import time
+
+LOG = set_logger(__name__)
 
 
 def main():
@@ -15,13 +17,17 @@ def main():
 
             if rdv:
                 send_mail()
-            else :
-                write_log('Pas de rdv disponible :(')
+            else:
+                LOG.info('Pas de rdv disponible :(')
 
-            time.sleep(60)
+            time.sleep(5)
+
+            LOG.debug('test')
+            print('1')
         except Exception as e:
-            write_log('[ERROR] something went wrong : {}'.format(e))
-            time.sleep(30)
+            LOG.error('[ERROR] something went wrong : {}'.format(e))
+            time.sleep(5)
+            print('2')
 
 
 if __name__ == '__main__':
