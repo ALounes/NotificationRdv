@@ -34,11 +34,10 @@ def dispo_rdv():
     conn.request("POST", path, payload, headers)
     res = conn.getresponse()
 
-    LOG.info("[HTTP status] : {}".format(res.status))
-
     if res.status > 400:
         LOG.info("[HTTP status] : {}".format(res.status))
         return False
+
 
     data = res.read().decode("utf-8")
     search = data.find(target_string)
@@ -46,6 +45,7 @@ def dispo_rdv():
     if search == -1 and res.status < 400:
         rdv = True
     else:
+        LOG.info("Pas de RDV de dispo ... [HTTP status] : {}".format(res.status))
         rdv = False
 
     conn.close()

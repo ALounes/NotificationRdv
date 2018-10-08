@@ -17,17 +17,12 @@ def main():
 
             if rdv:
                 send_mail()
-            else:
-                LOG.info('Pas de rdv disponible :(')
 
-            time.sleep(5)
+            time.sleep(30)
 
-            LOG.debug('test')
-            print('1')
         except Exception as e:
-            LOG.error('[ERROR] something went wrong : {}'.format(e))
-            time.sleep(5)
-            print('2')
+            LOG.error('Something went wrong : {}'.format(e))
+            time.sleep(30)
 
 
 if __name__ == '__main__':

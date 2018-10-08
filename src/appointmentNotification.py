@@ -48,4 +48,4 @@ def send_mail():
         LOG.info('Sending mail')
 
     except Exception as e:
-        LOG.error('[ERROR] Sending mail Failed : {}'.format(e))
+        LOG.error('Sending mail Failed : {}'.format(e))
