@@ -1,3 +1,3 @@
 #!/bin/sh
 
-python3 /Users/vt5466/PycharmProjects/webScraping/src/app.py
+pipenv run python3 ./src/app.py

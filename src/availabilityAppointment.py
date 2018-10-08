@@ -29,7 +29,7 @@ def dispo_rdv():
 
     :return:
     """
-    url, payload, headers, path, target_string = get_url_config('../config.json')
+    url, payload, headers, path, target_string = get_url_config('config.json')
     conn = http.client.HTTPConnection(url)
     conn.request("POST", path, payload, headers)
     res = conn.getresponse()

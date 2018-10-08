@@ -10,11 +10,11 @@ def set_logger(name):
 
     formatter = logging.Formatter('[%(asctime)s] - [%(name)s] - [%(levelname)s] : %(message)s')
 
-    error_handler = handlers.TimedRotatingFileHandler('error_timed_app.log', when='M', interval=60)
+    error_handler = handlers.TimedRotatingFileHandler('logs/error_timed_app.log', when='M', interval=60)
     error_handler.setLevel(logging.ERROR)
     error_handler.setFormatter(formatter)
 
-    info_handler = handlers.TimedRotatingFileHandler('info_timed_app.log', when='M', interval=60)
+    info_handler = handlers.TimedRotatingFileHandler('logs/info_timed_app.log', when='M', interval=60)
     info_handler.setLevel(logging.INFO)
     info_handler.setFormatter(formatter)
 
