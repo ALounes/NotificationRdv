@@ -1,27 +1,37 @@
-Step 01 : 
-Importation des modules python suivant la hiérarchi des dossiers 
-utiliser docker pour lancer l'application 
+pour lancer le programme :
+
+1) ajouter le fichier config.json avec cette structure :
+
+{
+  "mail_configuration" :
+  {
+    "smtp_ssl_host" : "XXX" ,
+    "smtp_ssl_port" : XXX,
+    "mail"          : "XXX",
+    "password"      : "XXX",
+    "targets_mail"  : "XXX"
+  },
+  "target_info":
+  {
+    "url" : "XXX",
+    "payload" : "XXX",
+    "headers" :
+    {
+      "content-type": "XXX",
+      "cache-control": "XXX"
+    },
+    "path" : "XXXX",
+    "target_string" : "XXX"
+  }
+}
+
+2) lancer le stript "start.sh"
 
 
 
-Step 02 : 
-Ajouter Flask pour 
 
-
-
-
-
-
-
-
-Why not : 
-1) une application web déployable :
-une seule app sur un docker avec l'accés à influxdb.
-influxdb est sur un conteneur 
-
-2) diviser les taches en fonctionalité parametrable  et dockerisable (architecture micro service)
-- envoyer un mail
-- scroller le site 
-- ecrire sur la base
-- lire à partir de la base 
-- app logique pour
+# TO DO :
+1) completer le dockerfile
+2) mettre à jour le Makefile
+3) Ajouter les tests de non régression 
+4) déployer et faire tourner 24h/24H sur une EC2.
